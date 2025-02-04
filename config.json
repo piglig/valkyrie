@@ -1,17 +1,17 @@
 {
-    "buttons": [
-      {
-        "name": "check_update",
-        "text": "Check Update",
-        "position": {"x": 50, "y": 50},
-        "size": {"width": 120, "height": 30}
-      },
-      {
-        "name": "install_update",
-        "text": "Install Update",
-        "position": {"x": 50, "y": 100},
-        "size": {"width": 120, "height": 30}
-      }
-    ]
-  }
+  "buttons": [
+    {
+      "name": "check_update",
+      "text": "Check Update",
+      "position": {"x": 50, "y": 50},
+      "size": {"width": 120, "height": 30}
+    },
+    {
+      "name": "install_update",
+      "text": "Install Update",
+      "position": {"x": 50, "y": 100},
+      "size": {"width": 120, "height": 30}
+    }
+  ]
+}
   

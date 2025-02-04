@@ -1,2 +1,5 @@
 *.exe
 */__pycache__
+/build
+*.png
+/dist

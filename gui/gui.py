@@ -2,7 +2,7 @@ import tkinter as tk
 import json
 import requests
 from tkinter import messagebox
-from config.config import load_config
+# from config.config import load_config
 from utils.updater import check_latest_version, install_update
 
 def on_check_update(root):
@@ -34,9 +34,9 @@ def create_gui():
     root.geometry("300x200")
 
     # Load the JSON configuration
-    config = load_config()
-    if config is None:
-        return
+    # config = load_config()
+    # if config is None:
+    #     return
 
     # Create a dictionary to map button names to functions
     button_actions = {
@@ -44,8 +44,29 @@ def create_gui():
         "install_update": lambda: on_install_update(root)
     }
 
+    defaultLayout = json.loads(
+        r'''
+        {
+            "buttons": [
+                {
+                "name": "check_update",
+                "text": "Check Update",
+                "position": {"x": 50, "y": 50},
+                "size": {"width": 120, "height": 30}
+                },
+                {
+                "name": "install_update",
+                "text": "Install Update",
+                "position": {"x": 50, "y": 100},
+                "size": {"width": 120, "height": 30}
+                }
+            ]
+        }
+        '''
+    )
+
     # Create buttons based on the JSON config
-    for btn_conf in config.get("buttons", []):
+    for btn_conf in defaultLayout.get("buttons", []):
         name = btn_conf.get("name")
         text = btn_conf.get("text", "Button")
         pos = btn_conf.get("position", {"x": 0, "y": 0})

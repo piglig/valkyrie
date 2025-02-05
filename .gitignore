@@ -1,6 +1,8 @@
+.venv/
 *.exe
 */__pycache__
 /build
 *.png
 /dist
 *.pyc
+/logs

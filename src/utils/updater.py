@@ -1,12 +1,13 @@
 import requests
 from version.version import CURRENT_VERSION, GITHUB_USER, GITHUB_REPO
+from core.log.logger import logger
 
 def check_latest_version():
     url = f"https://api.github.com/repos/{GITHUB_USER}/{GITHUB_REPO}/releases/latest"
     try:
-        print(f"Checking for updates at {url}")
         response = requests.get(url)
         if response.status_code == 200:
+            logger.info(f"check_latest_version Response body: {response.text}, Status code: {response.status_code}")
             data = response.json()
             latest_version = data["tag_name"]
             # Optionally, you can also get asset download URL if needed:
@@ -15,7 +16,7 @@ def check_latest_version():
             return latest_version, download_url
         else:
             # log response body andstatus code
-            print(f"Failed to check for updates. Response body: {response.text}, Status code: {response.status_code}")
+            logger.error(f"Failed to check for updates. Response body: {response.text}, Status code: {response.status_code}")
             return None, None
     except Exception as e:
         print(f"Error while checking for updates: {e}")
